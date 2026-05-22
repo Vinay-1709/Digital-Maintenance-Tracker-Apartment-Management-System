@@ -1,0 +1,58 @@
+<mat-toolbar color="primary" class="main-toolbar glass-effect">
+    <div class="toolbar-content">
+        <div class="logo-section" routerLink="/">
+            <mat-icon class="logo-icon">engineering</mat-icon>
+            <span class="logo-text">Digital Maintenance</span>
+        </div>
+
+        <span class="spacer"></span>
+
+        <div class="nav-links">
+            <ng-container *ngIf="currentUser$ | async as user; else loginButton">
+                <!-- Resident Links -->
+                <ng-container *ngIf="user.role === 'resident'">
+                    <button mat-button routerLink="/maintenance/new" routerLinkActive="active-link">
+                        <mat-icon>add_task</mat-icon> New Request
+                    </button>
+                    <button mat-button routerLink="/maintenance/history" routerLinkActive="active-link">
+                        <mat-icon>manage_history</mat-icon> History
+                    </button>
+                </ng-container>
+
+                <!-- Technician Links -->
+                <ng-container *ngIf="user.role === 'technician'">
+                    <button mat-button routerLink="/technician/dashboard" routerLinkActive="active-link">
+                        <mat-icon>dashboard_customize</mat-icon> Dashboard
+                    </button>
+                </ng-container>
+
+                <!-- Admin Links -->
+                <ng-container *ngIf="user.role === 'admin'">
+                    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active-link">
+                        <mat-icon>admin_panel_settings</mat-icon> Admin
+                    </button>
+                </ng-container>
+
+                <button mat-icon-button [matMenuTriggerFor]="userMenu" class="user-profile-btn"
+                    matTooltip="{{ user.name }}">
+                    <mat-icon>account_circle</mat-icon>
+                </button>
+
+                <mat-menu #userMenu="matMenu" panelClass="modern-menu-panel">
+                    <div class="menu-items">
+                        <button mat-menu-item (click)="logout()" class="logout-item">
+                            <mat-icon color="warn">logout</mat-icon>
+                            <span class="warn-text">Logout</span>
+                        </button>
+                    </div>
+                </mat-menu>
+            </ng-container>
+
+            <ng-template #loginButton>
+                <button mat-raised-button color="accent" routerLink="/login">
+                    <mat-icon>login</mat-icon> Login
+                </button>
+            </ng-template>
+        </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,67 @@
+<div class="landing-container fade-in">
+    <div class="hero-section slide-up">
+        <div class="hero-content glass-effect">
+            <mat-icon class="hero-icon">verified_user</mat-icon>
+            <h1>Seamless Infrastructure Maintenance</h1>
+            <p>Experience the next generation of building management. Submit, track, and manage maintenance requests
+                with professional ease.</p>
+
+            <div class="cta-buttons" *ngIf="!(isLoggedIn$ | async)">
+                <button mat-raised-button color="primary" routerLink="/login" class="large-btn">
+                    Get Started
+                </button>
+                <button mat-stroked-button color="primary" routerLink="/register" class="large-btn">
+                    Create Account
+                </button>
+            </div>
+
+            <div class="cta-buttons" *ngIf="isLoggedIn$ | async">
+                <button mat-raised-button color="accent" (click)="navigateToDashboard()"
+                    class="large-btn pulse-animation">
+                    Go to Dashboard
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-grid container">
+        <mat-card class="feature-card slide-up" style="animation-delay: 0.2s;">
+            <mat-card-header>
+                <div mat-card-avatar class="feature-icon-wrapper resident">
+                    <mat-icon>support_agent</mat-icon>
+                </div>
+                <mat-card-title>For Residents</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Submit maintenance requests in seconds. Attach photos, track progress, and get instant updates.</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="feature-card slide-up" style="animation-delay: 0.4s;">
+            <mat-card-header>
+                <div mat-card-avatar class="feature-icon-wrapper technician">
+                    <mat-icon>construction</mat-icon>
+                </div>
+                <mat-card-title>For Technicians</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Manage your tasks efficiently. View job details, update status, and communicate with residents
+                    seamlessly.</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="feature-card slide-up" style="animation-delay: 0.6s;">
+            <mat-card-header>
+                <div mat-card-avatar class="feature-icon-wrapper admin">
+                    <mat-icon>admin_panel_settings</mat-icon>
+                </div>
+                <mat-card-title>For Admins</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Complete control over building operations. Assign tasks, monitor performance, and ensure smooth
+                    operations.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

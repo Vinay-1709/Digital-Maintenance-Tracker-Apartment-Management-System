@@ -1,0 +1,186 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+    --primary-color: #3f51b5;
+    --accent-color: #00bcd4;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-blur: blur(12px);
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', 'Inter', sans-serif !important;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: #333;
+}
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 64px);
+}
+
+/* Modern utility classes */
+.glass-effect {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mat Card Overrides */
+.mat-mdc-card {
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.18) !important;
+    }
+}
+
+/* Form Field Visibility Fix */
+.mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+/* Button Visibility and Contrast */
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+    border-radius: 30px !important;
+    padding: 0 24px !important;
+    height: 48px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.2s ease !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.mat-mdc-raised-button.mat-accent {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+}
+
+.mat-mdc-raised-button:disabled {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    color: rgba(0, 0, 0, 0.26) !important;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(63, 81, 181, 0.4);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(63, 81, 181, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(63, 81, 181, 0);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Material Icon consistency */
+.mat-icon {
+    vertical-align: middle;
+}
+
+/* Modern Menu Panel (Simplified Account Dropdown) */
+.modern-menu-panel {
+    min-width: 160px !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    background: #ffffff !important;
+
+    .mat-mdc-menu-item {
+        height: 48px !important;
+        font-weight: 500;
+        color: #444;
+
+        mat-icon {
+            color: #f44336;
+            margin-right: 12px;
+        }
+
+        &:hover {
+            background-color: rgba(244, 67, 54, 0.05) !important;
+
+            .warn-text {
+                color: #d32f2f;
+            }
+        }
+    }
+
+    .warn-text {
+        color: #f44336;
+        font-weight: 600;
+    }
+}
+
+/* Global Table Cell Wrapping */
+.mat-mdc-cell {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal !important;
+    padding: 12px 16px !important;
+}
+
+.mat-mdc-header-cell {
+    white-space: nowrap;
+    padding: 12px 16px !important;
+}

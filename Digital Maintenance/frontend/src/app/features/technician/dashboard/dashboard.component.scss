@@ -1,0 +1,106 @@
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 2rem;
+
+    .title-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        color: var(--primary-color);
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+}
+
+.empty-card {
+    text-align: center;
+    padding: 3rem !important;
+    border-radius: 16px !important;
+
+    mat-icon {
+        font-size: 64px;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        opacity: 0.5;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 0;
+    }
+}
+
+.table-container {
+    border-radius: 16px !important;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.modern-table {
+    width: 100%;
+    background: transparent !important;
+
+    th.mat-mdc-header-cell {
+        background: rgba(240, 242, 245, 0.5);
+        color: #5d6778;
+        font-weight: 600;
+        padding: 16px;
+        white-space: nowrap;
+
+        .header-icon {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+            margin-right: 4px;
+            opacity: 0.7;
+        }
+    }
+
+    td.mat-mdc-cell {
+        padding: 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    tr.mat-mdc-row:hover {
+        background: rgba(63, 81, 181, 0.03);
+    }
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-select {
+    width: 160px !important;
+    font-size: 0.85rem;
+
+    ::v-deep .mat-mdc-form-field-infix {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        min-height: 40px !important;
+    }
+}
+
+mat-chip-option {
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+}
